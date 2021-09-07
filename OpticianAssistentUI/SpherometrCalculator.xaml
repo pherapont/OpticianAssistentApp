@@ -1,0 +1,26 @@
+﻿<Window x:Class="OpticianAssistentUI.SpherometrCalculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpticianAssistentUI"
+        mc:Ignorable="d"
+        Title="SpherometrCalculator" Height="720" Width="580"
+        Background="#323232"
+        Icon=".\Assets\Icons\optic.png"
+        >
+    <StackPanel>
+        
+        <TextBlock x:Name="message"
+                   Text="Здесь появится тестовое сообщение"
+                   HorizontalAlignment="Center"
+                   Foreground="#ffffff"
+                   Margin="20"/>
+
+        <Button Width="60" Height="30"
+                Click="CalculateSpheraParametrs"
+                Content="Calculate"/>
+
+    </StackPanel>
+    
+</Window>
