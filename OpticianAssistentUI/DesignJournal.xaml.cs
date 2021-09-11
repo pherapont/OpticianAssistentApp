@@ -34,14 +34,8 @@ namespace OpticianAssistentUI
             {
                 TextBlock textBlock = (TextBlock)JournalLayout.Children[i];
                 textBlock.Text = designTasks[i].DTName;
-                textBlock.FontSize = 18;
-                textBlock.FontFamily = new FontFamily("Arial");
-                textBlock.FontWeight = FontWeights.Bold;
-                textBlock.FontStyle = FontStyles.Italic;
-                textBlock.Foreground = new SolidColorBrush(Color.FromRgb(200, 200, 200));
-                textBlock.VerticalAlignment = VerticalAlignment.Center;
-                textBlock.HorizontalAlignment = HorizontalAlignment.Center;
                 textBlock.TextWrapping = TextWrapping.Wrap;
+                textBlock.Style = (Style)TryFindResource("StyleJournalCell");
             }
             
         }
