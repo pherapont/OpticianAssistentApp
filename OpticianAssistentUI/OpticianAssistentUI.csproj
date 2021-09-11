@@ -58,9 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DesignJournal.xaml.cs">
+      <DependentUpon>DesignJournal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignTask.cs" />
     <Compile Include="SpherometrCalculator.xaml.cs">
       <DependentUpon>SpherometrCalculator.xaml</DependentUpon>
     </Compile>
+    <Page Include="DesignJournal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -39,5 +39,14 @@
                 >
             Калькулятор сферометра
         </Button>
+        
+        <Button Grid.Row="1" Grid.Column="1"
+                Background="#FF5EA7BD"
+                Foreground="#FF492828"
+                FontWeight="Bold" FontStyle="Italic"
+                Click="OpenDesignJournal"
+                >
+            Журнал проектирования
+        </Button>
     </Grid>
 </Window>

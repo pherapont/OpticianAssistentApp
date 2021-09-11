@@ -23,13 +23,18 @@ namespace OpticianAssistentUI
         public MainWindow()
         {
             InitializeComponent();
-            Grid.Children.Add(new TextBlock());
         }
 
         private void OpenSpherometrCalculator(object sender, RoutedEventArgs e)
         {
             SpherometrCalculator spherometrCalculator = new SpherometrCalculator();
             spherometrCalculator.Show();
+        }
+
+        private void OpenDesignJournal(object sender, RoutedEventArgs e)
+        {
+            DesignJournal designJournal = new DesignJournal();
+            designJournal.Show();
         }
     }
 }
