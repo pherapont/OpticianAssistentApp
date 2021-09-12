@@ -20,6 +20,9 @@ namespace ConsoleAppTestLibs
             foreach (var item in list)
             {
                 Console.WriteLine(item.DesignTaskName);
+                Console.WriteLine(item.DesignTaskContent);
+                Console.WriteLine(item.DesignTaskCreationTime);
+                Console.WriteLine(item.DesignTaskLastUpdateTime);
             }
         }
     }

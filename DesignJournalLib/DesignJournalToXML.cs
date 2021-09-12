@@ -25,11 +25,6 @@ namespace DesignJournalLib
         }
         public void SaveDesignTaskToXML(DesignTask task)
         {
-            if (!File.Exists(DLXFileName))
-            {
-                CreateXMLFile();
-            }
-
             XmlElement xTask = DLXDoc.CreateElement("designTask");
 
             XmlAttribute taskName = DLXDoc.CreateAttribute("Name");
@@ -57,18 +52,38 @@ namespace DesignJournalLib
             DLXDoc.Save(DLXFileName);
         }
 
-        internal List<DesignTask> GetLibrary()
+        internal List<DesignTask> GetJournal()
         {
             List<DesignTask> designTasks = new List<DesignTask>();
 
             foreach (XmlNode xTask in DLXRoot.ChildNodes)
             {
                 DesignTask task = new DesignTask();
-                XmlNode nameAttr = xTask.Attributes.GetNamedItem("Name");
-                if (nameAttr != null)
+
+                if (xTask.Attributes.Count > 0)
                 {
-                    task.DesignTaskName = nameAttr.Value;
+                    XmlNode nameAttr = xTask.Attributes.GetNamedItem("Name");
+                    if (nameAttr != null)
+                    {
+                        task.DesignTaskName = nameAttr.Value;
+                    }
                 }
+                foreach (XmlNode xField in xTask.ChildNodes)
+                {
+                    if (xField.Name == "Content")
+                    {
+                        task.DesignTaskContent = xField.InnerText;
+                    }
+                    else if (xField.Name == "CreationData")
+                    {
+                        task.DesignTaskCreationTime = DateTime.Parse(xField.InnerText);
+                    }
+                    else if (xField.Name == "UpdateData")
+                    {
+                        task.DesignTaskLastUpdateTime = DateTime.Parse(xField.InnerText);
+                    }
+                }
+                designTasks.Add(task);
             }
 
             return designTasks;

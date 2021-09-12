@@ -36,7 +36,7 @@ namespace DesignJournalLib
 
         private List<DesignTask> GetLibraryFromStorage()
         {
-            return designJournalToXML.GetLibrary();
+            return designJournalToXML.GetJournal();
         }
 
     }
