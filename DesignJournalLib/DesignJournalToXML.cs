@@ -5,17 +5,21 @@ using System.Xml;
 
 namespace DesignJournalLib
 {
-    internal class DesignLibraryToXML
+    internal class DesignJournalToXML
     {
         XmlDocument DLXDoc;
         string DLXFileName;
         XmlElement DLXRoot;
-        string rootName = "designLibrary";
+        string rootName = "designJournal";
 
-        public DesignLibraryToXML(string storeDir)
+        public DesignJournalToXML(string storeDir)
         {
             DLXDoc = new XmlDocument();
-            DLXFileName = $"{storeDir}\\designLibrary.xml";
+            DLXFileName = $"{storeDir}\\{rootName}.xml";
+            if (!File.Exists(DLXFileName))
+            {
+                CreateXMLFile();
+            }
             DLXDoc.Load(DLXFileName);
             DLXRoot = DLXDoc.DocumentElement;
         }
@@ -72,10 +76,8 @@ namespace DesignJournalLib
 
         private void CreateXMLFile()
         {
-            StreamWriter DLXStreamWriter = File.CreateText(DLXFileName);
-            DLXStreamWriter.WriteLine($"<{rootName}>");
-            DLXStreamWriter.WriteLine($"</{rootName}>");
-            DLXStreamWriter.Close();
+            string[] initialContent = { "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>", $"<{rootName}>", $"</{rootName}>" };
+            File.WriteAllLines(DLXFileName, initialContent, System.Text.Encoding.UTF8);
         }
     }
 }

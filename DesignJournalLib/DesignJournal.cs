@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace DesignJournalLib
 {
-    public class DesignLibrary
+    public class DesignJournal
     {
         List<DesignTask> designLibrary;
-        DesignLibraryToXML designLibraryToXML;
+        DesignJournalToXML designJournalToXML;
 
-        public DesignLibrary(string storeDir)
+        public DesignJournal(string storeDir)
         {
-            DesignLibraryToXML designLibraryToXML = new DesignLibraryToXML(storeDir);
+            designJournalToXML = new DesignJournalToXML(storeDir);
 
-            if (File.Exists($"{storeDir}\\designLibrary.xml"))
+            if (File.Exists($"{storeDir}\\designJournal.xml"))
             {
                 designLibrary = GetLibraryFromStorage();
             }
@@ -31,12 +31,12 @@ namespace DesignJournalLib
         {
             designLibrary.Add(task);
 
-            designLibraryToXML.SaveDesignTaskToXML(task);
+            designJournalToXML.SaveDesignTaskToXML(task);
         }
 
         private List<DesignTask> GetLibraryFromStorage()
         {
-            return designLibraryToXML.GetLibrary();
+            return designJournalToXML.GetLibrary();
         }
 
     }
