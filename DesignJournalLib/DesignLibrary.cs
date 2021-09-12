@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DesignJournalLib
 {
-    public class DesignLibrary : IDesignLibraryManagable
+    public class DesignLibrary
     {
         List<DesignTask> designLibrary;
         DesignLibraryToXML designLibraryToXML;
