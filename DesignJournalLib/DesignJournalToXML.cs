@@ -23,6 +23,7 @@ namespace DesignJournalLib
             DLXDoc.Load(DLXFileName);
             DLXRoot = DLXDoc.DocumentElement;
         }
+
         public void SaveDesignTaskToXML(DesignTask task)
         {
             XmlElement xTask = DLXDoc.CreateElement("designTask");
