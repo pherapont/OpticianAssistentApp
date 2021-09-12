@@ -4,11 +4,17 @@ namespace DesignJournalLib
 {
     public class DesignTask
     {
-        static int taskNumber;
+        private static int _taskNumber;
+        public DesignTask()
+        {
+            DesignTaskId = _taskNumber;
+            _taskNumber++;
+        }
 
-        int DesignTaskId { get; set; }
-        string DesignTaskContent { get; set; }
-        DateTime DesignTaskCreationTime { get; set; }
-        DateTime DesignTaskLastUpdateTime { get; set; }
+        public int DesignTaskId { get; private set; }
+        public string DesignTaskContent { get; set; }
+        public string DesignTaskName { get; set; }
+        public DateTime DesignTaskCreationTime { get; set; }
+        public DateTime DesignTaskLastUpdateTime { get; set; }
     }
 }

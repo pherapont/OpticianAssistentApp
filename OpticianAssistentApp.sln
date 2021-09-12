@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpherometrCalcLib", "Sphero
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptoTechnologiesMapsLib", "OptoTechnologiesMaps\OptoTechnologiesMapsLib.csproj", "{343DE318-5D1D-4C77-B79D-BCC584B63F01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignJournalLib", "DesignJournalLib\DesignJournalLib.csproj", "{D8FC7D0C-633C-41B1-AA6C-F60CB4B7FF02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignJournalLib", "DesignJournalLib\DesignJournalLib.csproj", "{D8FC7D0C-633C-41B1-AA6C-F60CB4B7FF02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTestLibs", "ConsoleAppTestLibs\ConsoleAppTestLibs.csproj", "{A2B97981-8A9B-497C-8861-8D1C7690A99B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D8FC7D0C-633C-41B1-AA6C-F60CB4B7FF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8FC7D0C-633C-41B1-AA6C-F60CB4B7FF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8FC7D0C-633C-41B1-AA6C-F60CB4B7FF02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2B97981-8A9B-497C-8861-8D1C7690A99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B97981-8A9B-497C-8861-8D1C7690A99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B97981-8A9B-497C-8861-8D1C7690A99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B97981-8A9B-497C-8861-8D1C7690A99B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
