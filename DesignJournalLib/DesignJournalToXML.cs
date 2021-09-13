@@ -33,10 +33,10 @@ namespace DesignJournalLib
             XmlElement taskCreationData = DLXDoc.CreateElement("CreationData");
             XmlElement taskUpdateData = DLXDoc.CreateElement("UpdateData");
 
-            XmlText nameText = DLXDoc.CreateTextNode(task.DesignTaskName);
-            XmlText contentText = DLXDoc.CreateTextNode(task.DesignTaskContent);
-            XmlText creationDataText = DLXDoc.CreateTextNode(task.DesignTaskCreationTime.ToString());
-            XmlText updateDataText = DLXDoc.CreateTextNode(task.DesignTaskLastUpdateTime.ToString());
+            XmlText nameText = DLXDoc.CreateTextNode(task.Name);
+            XmlText contentText = DLXDoc.CreateTextNode(task.Content);
+            XmlText creationDataText = DLXDoc.CreateTextNode(task.CreationTime.ToString());
+            XmlText updateDataText = DLXDoc.CreateTextNode(task.UpdateTime.ToString());
 
             taskName.AppendChild(nameText);
             taskContent.AppendChild(contentText);
@@ -66,22 +66,22 @@ namespace DesignJournalLib
                     XmlNode nameAttr = xTask.Attributes.GetNamedItem("Name");
                     if (nameAttr != null)
                     {
-                        task.DesignTaskName = nameAttr.Value;
+                        task.Name = nameAttr.Value;
                     }
                 }
                 foreach (XmlNode xField in xTask.ChildNodes)
                 {
                     if (xField.Name == "Content")
                     {
-                        task.DesignTaskContent = xField.InnerText;
+                        task.Content = xField.InnerText;
                     }
                     else if (xField.Name == "CreationData")
                     {
-                        task.DesignTaskCreationTime = DateTime.Parse(xField.InnerText);
+                        task.CreationTime = DateTime.Parse(xField.InnerText);
                     }
                     else if (xField.Name == "UpdateData")
                     {
-                        task.DesignTaskLastUpdateTime = DateTime.Parse(xField.InnerText);
+                        task.UpdateTime = DateTime.Parse(xField.InnerText);
                     }
                 }
                 designTasks.Add(task);
