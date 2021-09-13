@@ -16,7 +16,7 @@ namespace ConsoleAppTestLibs
             designLibrary.SaveDesignTask(designTask);
 
             DesignJournalXML dL = new DesignJournalXML("C:\\Users\\Oleg\\Desktop\\Б-21-02 (чертежи)\\Журнал");
-            List<DesignTask> list = dL.GetJournal();
+            List<DesignTask> list = dL.GetJournalFromStorage();
             foreach (var item in list)
             {
                 Console.WriteLine(item.Name);

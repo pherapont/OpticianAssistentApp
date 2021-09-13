@@ -7,46 +7,48 @@ namespace DesignJournalLib
 {
     public class DesignJournalXML : IDesignJournal
     {
-        XmlDocument DLXDoc;
-        string DLXFileName;
-        XmlElement DLXRoot;
-        string rootName = "designJournal";
+        const string ROOT_NAME = "DesignJournal";
+
+        XmlDocument XDoc;
+        string XFileName;
+        XmlElement XRoot;
 
         public DesignJournalXML(string storeDir)
         {
-            DLXDoc = new XmlDocument();
-            DLXFileName = $"{storeDir}\\{rootName}.xml";
-            if (!File.Exists(DLXFileName))
+            XDoc = new XmlDocument();
+            XFileName = $"{storeDir}\\{ROOT_NAME}.xml";
+            if (!File.Exists(XFileName))
             {
                 Journal = new List<DesignTask>();
                 CreateXMLFile();
-                DLXDoc.Load(DLXFileName);
-                DLXRoot = DLXDoc.DocumentElement;
+                XDoc.Load(XFileName);
+                XRoot = XDoc.DocumentElement;
             }
             else
             {
-                DLXDoc.Load(DLXFileName);
-                DLXRoot = DLXDoc.DocumentElement;
-                Journal = GetJournal();
+                XDoc.Load(XFileName);
+                XRoot = XDoc.DocumentElement;
+                Journal = GetJournalFromStorage();
             }
         }
 
         public List<DesignTask> Journal { get; private set; }
+
         public void SaveDesignTask(DesignTask task)
         {
             Journal.Add(task);
 
-            XmlElement xTask = DLXDoc.CreateElement("designTask");
+            XmlElement xTask = XDoc.CreateElement("DesignTask");
 
-            XmlAttribute taskName = DLXDoc.CreateAttribute("Name");
-            XmlElement taskContent = DLXDoc.CreateElement("Content");
-            XmlElement taskCreationData = DLXDoc.CreateElement("CreationData");
-            XmlElement taskUpdateData = DLXDoc.CreateElement("UpdateData");
+            XmlAttribute taskName = XDoc.CreateAttribute("Name");
+            XmlElement taskContent = XDoc.CreateElement("Content");
+            XmlElement taskCreationData = XDoc.CreateElement("CreationData");
+            XmlElement taskUpdateData = XDoc.CreateElement("UpdateData");
 
-            XmlText nameText = DLXDoc.CreateTextNode(task.Name);
-            XmlText contentText = DLXDoc.CreateTextNode(task.Content);
-            XmlText creationDataText = DLXDoc.CreateTextNode(task.CreationTime.ToString());
-            XmlText updateDataText = DLXDoc.CreateTextNode(task.UpdateTime.ToString());
+            XmlText nameText = XDoc.CreateTextNode(task.Name);
+            XmlText contentText = XDoc.CreateTextNode(task.Content);
+            XmlText creationDataText = XDoc.CreateTextNode(task.CreationTime.ToString());
+            XmlText updateDataText = XDoc.CreateTextNode(task.UpdateTime.ToString());
 
             taskName.AppendChild(nameText);
             taskContent.AppendChild(contentText);
@@ -58,16 +60,16 @@ namespace DesignJournalLib
             xTask.AppendChild(taskCreationData);
             xTask.AppendChild(taskUpdateData);
 
-            DLXRoot.AppendChild(xTask);
+            XRoot.AppendChild(xTask);
 
-            DLXDoc.Save(DLXFileName);
+            XDoc.Save(XFileName);
         }
 
-        public List<DesignTask> GetJournal()
+        public List<DesignTask> GetJournalFromStorage()
         {
             List<DesignTask> designTasks = new List<DesignTask>();
 
-            foreach (XmlNode xTask in DLXRoot.ChildNodes)
+            foreach (XmlNode xTask in XRoot.ChildNodes)
             {
                 DesignTask task = new DesignTask();
 
@@ -102,8 +104,8 @@ namespace DesignJournalLib
 
         private void CreateXMLFile()
         {
-            string[] initialContent = { "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>", $"<{rootName}>", $"</{rootName}>" };
-            File.WriteAllLines(DLXFileName, initialContent, System.Text.Encoding.UTF8);
+            string[] initialContent = { "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>", $"<{ROOT_NAME}>", $"</{ROOT_NAME}>" };
+            File.WriteAllLines(XFileName, initialContent, System.Text.Encoding.UTF8);
         }
     }
 }

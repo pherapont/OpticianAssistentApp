@@ -10,6 +10,6 @@ namespace DesignJournalLib
     {
         List<DesignTask> Journal { get; }
         void SaveDesignTask(DesignTask task);
-        List<DesignTask> GetJournal();
+        List<DesignTask> GetJournalFromStorage();
     }
 }
