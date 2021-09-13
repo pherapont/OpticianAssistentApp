@@ -36,8 +36,15 @@ namespace OpticianAssistentUI
                 textBlock.Text = designTasks[i].DTName;
                 textBlock.TextWrapping = TextWrapping.Wrap;
                 textBlock.Style = (Style)TryFindResource("StyleJournalCell");
+                textBlock.MouseLeftButtonDown += new MouseButtonEventHandler(OnJournalCellClick);
             }
             
+        }
+
+        private void OnJournalCellClick(object sender, RoutedEventArgs e)
+        {
+            DesignTaskRead dtr = new DesignTaskRead();
+            dtr.Show();
         }
 
         // TODO В этом методе будем подключать библиотеку DesingJournalLib
