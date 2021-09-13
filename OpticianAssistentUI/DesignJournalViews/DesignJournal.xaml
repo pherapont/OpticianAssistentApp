@@ -8,6 +8,7 @@
         Title="DesignJournal" Height="720" Width="620"
         Background="#323232"
         Icon=".\Assets\Icons\optic.png">
+    
     <Window.Resources>
         <Style x:Key="StyleJournalCell">
             <Setter Property="ItemsControl.FontFamily" Value="Arial" />
@@ -19,6 +20,7 @@
             <Setter Property="ItemsControl.HorizontalAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
+    
     <DockPanel LastChildFill="True">
 
         <DockPanel DockPanel.Dock="Bottom" Margin="6">

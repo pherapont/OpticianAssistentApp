@@ -40,7 +40,8 @@ namespace OpticianAssistentUI
             
         }
 
-        List<DesignTask> GetDesignTasks()
+        // TODO В этом методе будем подключать библиотеку DesingJournalLib
+        private List<DesignTask> GetDesignTasks()
         {
             List<DesignTask> designTasks = new List<DesignTask>();
 
