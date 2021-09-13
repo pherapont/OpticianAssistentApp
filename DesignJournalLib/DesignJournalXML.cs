@@ -5,27 +5,37 @@ using System.Xml;
 
 namespace DesignJournalLib
 {
-    internal class DesignJournalToXML
+    public class DesignJournalXML : IDesignJournal
     {
         XmlDocument DLXDoc;
         string DLXFileName;
         XmlElement DLXRoot;
         string rootName = "designJournal";
 
-        public DesignJournalToXML(string storeDir)
+        public DesignJournalXML(string storeDir)
         {
             DLXDoc = new XmlDocument();
             DLXFileName = $"{storeDir}\\{rootName}.xml";
             if (!File.Exists(DLXFileName))
             {
+                Journal = new List<DesignTask>();
                 CreateXMLFile();
+                DLXDoc.Load(DLXFileName);
+                DLXRoot = DLXDoc.DocumentElement;
             }
-            DLXDoc.Load(DLXFileName);
-            DLXRoot = DLXDoc.DocumentElement;
+            else
+            {
+                DLXDoc.Load(DLXFileName);
+                DLXRoot = DLXDoc.DocumentElement;
+                Journal = GetJournal();
+            }
         }
 
-        public void SaveDesignTaskToXML(DesignTask task)
+        public List<DesignTask> Journal { get; private set; }
+        public void SaveDesignTask(DesignTask task)
         {
+            Journal.Add(task);
+
             XmlElement xTask = DLXDoc.CreateElement("designTask");
 
             XmlAttribute taskName = DLXDoc.CreateAttribute("Name");
@@ -53,7 +63,7 @@ namespace DesignJournalLib
             DLXDoc.Save(DLXFileName);
         }
 
-        internal List<DesignTask> GetJournal()
+        public List<DesignTask> GetJournal()
         {
             List<DesignTask> designTasks = new List<DesignTask>();
 

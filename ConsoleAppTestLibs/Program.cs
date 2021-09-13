@@ -8,15 +8,15 @@ namespace ConsoleAppTestLibs
     {
         static void Main(string[] args)
         {
-            DesignJournal designLibrary = new DesignJournal("C:\\Users\\Oleg\\Desktop\\Б-21-02 (чертежи)\\Журнал");
+            DesignJournalXML designLibrary = new DesignJournalXML("C:\\Users\\Oleg\\Desktop\\Б-21-02 (чертежи)\\Журнал");
             DesignTask designTask = new DesignTask { Name = "Test" };
             designTask.Content = "Here is task description";
             designTask.CreationTime = DateTime.Now;
             designTask.UpdateTime = DateTime.Now;
             designLibrary.SaveDesignTask(designTask);
 
-            DesignJournal dL = new DesignJournal("C:\\Users\\Oleg\\Desktop\\Б-21-02 (чертежи)\\Журнал");
-            List<DesignTask> list = dL.GetDesignLibrary();
+            DesignJournalXML dL = new DesignJournalXML("C:\\Users\\Oleg\\Desktop\\Б-21-02 (чертежи)\\Журнал");
+            List<DesignTask> list = dL.GetJournal();
             foreach (var item in list)
             {
                 Console.WriteLine(item.Name);
