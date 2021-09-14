@@ -47,30 +47,98 @@
 
         </DockPanel>
 
-        <Grid x:Name="JournalLayout" ShowGridLines="True">
+        <TabControl Background="#323232">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+            <TabItem Header="Задачи высокого приоритета">
+                
+                <Grid x:Name="HighJournalLayout" ShowGridLines="True">
 
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0"/>
-            <TextBlock Grid.Row="0" Grid.Column="1"/>
-            <TextBlock Grid.Row="1" Grid.Column="0"/>
-            <TextBlock Grid.Row="1" Grid.Column="1"/>
-            <TextBlock Grid.Row="2" Grid.Column="0"/>
-            <TextBlock Grid.Row="2" Grid.Column="1"/>
-            <TextBlock Grid.Row="3" Grid.Column="0"/>
-            <TextBlock Grid.Row="3" Grid.Column="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-        </Grid>
+                    <TextBlock Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1"/>
+
+                </Grid>
+                
+            </TabItem>
+
+            <TabItem Header="Задачи среднего приоритета">
+
+                <Grid x:Name="MiddleJournalLayout" ShowGridLines="True">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1"/>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Задачи низкого приоритета">
+
+                <Grid x:Name="LowJournalLayout" ShowGridLines="True">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1"/>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+        
 
     </DockPanel>
 

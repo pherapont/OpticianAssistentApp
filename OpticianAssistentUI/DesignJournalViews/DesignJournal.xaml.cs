@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OpticianAssistentUI
 {
@@ -32,13 +23,13 @@ namespace OpticianAssistentUI
 
             for (int i = 0; i < designTasks.Count; i++)
             {
-                TextBlock textBlock = (TextBlock)JournalLayout.Children[i];
+                TextBlock textBlock = (TextBlock)LowJournalLayout.Children[i];
                 textBlock.Text = designTasks[i].DTName;
                 textBlock.TextWrapping = TextWrapping.Wrap;
                 textBlock.Style = (Style)TryFindResource("StyleJournalCell");
                 textBlock.MouseLeftButtonDown += new MouseButtonEventHandler(OnJournalCellClick);
             }
-            
+
         }
 
         private void OnJournalCellClick(object sender, RoutedEventArgs e)
