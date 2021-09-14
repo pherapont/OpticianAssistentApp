@@ -4,8 +4,7 @@ namespace DesignJournalLib
 {
     interface IDesignJournal
     {
-        List<DesignTask> Journal { get; }
         void SaveDesignTask(DesignTask task);
-        List<DesignTask> GetJournalFromStorage();
+        (List<DesignTask>, List<DesignTask>, List<DesignTask>) GetJournalsFromStorage();
     }
 }

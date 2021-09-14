@@ -19,45 +19,37 @@ namespace DesignJournalLib
             XFileName = $"{storeDir}\\{ROOT_NAME}.xml";
             if (!File.Exists(XFileName))
             {
-                Journal = new List<DesignTask>();
-
                 CreateXMLFile();
+            }
                 XDoc.Load(XFileName);
                 XRoot = XDoc.DocumentElement;
-            }
-            else
-            {
-                XDoc.Load(XFileName);
-                XRoot = XDoc.DocumentElement;
-
-                Journal = GetJournalFromStorage();
-            }
         }
-
-        public List<DesignTask> Journal { get; private set; }
 
         public void SaveDesignTask(DesignTask task)
         {
-            Journal.Add(task);
 
             XmlElement xTask = XDoc.CreateElement("DesignTask");
 
             XmlAttribute taskName = XDoc.CreateAttribute("Name");
+            XmlAttribute taskPriority = XDoc.CreateAttribute("Priority");
             XmlElement taskContent = XDoc.CreateElement("Content");
             XmlElement taskCreationData = XDoc.CreateElement("CreationData");
             XmlElement taskUpdateData = XDoc.CreateElement("UpdateData");
 
             XmlText nameText = XDoc.CreateTextNode(task.Name);
+            XmlText priorityText = XDoc.CreateTextNode(task.Priority.ToString());
             XmlText contentText = XDoc.CreateTextNode(task.Content);
             XmlText creationDataText = XDoc.CreateTextNode(task.CreationTime.ToString());
             XmlText updateDataText = XDoc.CreateTextNode(task.UpdateTime.ToString());
 
             taskName.AppendChild(nameText);
+            taskPriority.AppendChild(priorityText);
             taskContent.AppendChild(contentText);
             taskCreationData.AppendChild(creationDataText);
             taskUpdateData.AppendChild(updateDataText);
 
             xTask.Attributes.Append(taskName);
+            xTask.Attributes.Append(taskPriority);
             xTask.AppendChild(taskContent);
             xTask.AppendChild(taskCreationData);
             xTask.AppendChild(taskUpdateData);
@@ -67,9 +59,11 @@ namespace DesignJournalLib
             XDoc.Save(XFileName);
         }
 
-        public List<DesignTask> GetJournalFromStorage()
+        public (List<DesignTask>, List<DesignTask>, List<DesignTask>) GetJournalsFromStorage()
         {
-            List<DesignTask> designTasks = new List<DesignTask>();
+            List<DesignTask> lowPriorityDesignTasks = new List<DesignTask>();
+            List<DesignTask> middlePriorityDesignTasks = new List<DesignTask>();
+            List<DesignTask> heighPriorityDesignTasks = new List<DesignTask>();
 
             foreach (XmlNode xTask in XRoot.ChildNodes)
             {
@@ -81,6 +75,11 @@ namespace DesignJournalLib
                     if (nameAttr != null)
                     {
                         task.Name = nameAttr.Value;
+                    }
+                    XmlNode priorityAttr = xTask.Attributes.GetNamedItem("Priority");
+                    if (priorityAttr != null)
+                    {
+                        task.Priority = (DesignTaskPriority)Enum.Parse(typeof(DesignTaskPriority), priorityAttr.Value);
                     }
                 }
                 foreach (XmlNode xField in xTask.ChildNodes)
@@ -98,10 +97,21 @@ namespace DesignJournalLib
                         task.UpdateTime = DateTime.Parse(xField.InnerText);
                     }
                 }
-                designTasks.Add(task);
+                switch (task.Priority)
+                {
+                    case DesignTaskPriority.Low:
+                        lowPriorityDesignTasks.Add(task);
+                        break;
+                    case DesignTaskPriority.Middle:
+                        middlePriorityDesignTasks.Add(task);
+                        break;
+                    case DesignTaskPriority.High:
+                        heighPriorityDesignTasks.Add(task);
+                        break;
+                } 
             }
 
-            return designTasks;
+            return (lowPriorityDesignTasks, middlePriorityDesignTasks, heighPriorityDesignTasks);
         }
 
         private void CreateXMLFile()
