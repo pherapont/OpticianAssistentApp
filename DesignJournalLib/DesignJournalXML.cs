@@ -20,6 +20,7 @@ namespace DesignJournalLib
             if (!File.Exists(XFileName))
             {
                 Journal = new List<DesignTask>();
+
                 CreateXMLFile();
                 XDoc.Load(XFileName);
                 XRoot = XDoc.DocumentElement;
@@ -28,6 +29,7 @@ namespace DesignJournalLib
             {
                 XDoc.Load(XFileName);
                 XRoot = XDoc.DocumentElement;
+
                 Journal = GetJournalFromStorage();
             }
         }
