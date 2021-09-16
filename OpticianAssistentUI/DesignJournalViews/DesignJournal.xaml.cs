@@ -11,11 +11,30 @@ namespace OpticianAssistentUI
     /// </summary>
     public partial class DesignJournal : Window
     {
+
+        DesignJournalController journalController;
+
+        // TODO передавать адрес папки журнала из пользовательского интерфейса
         public DesignJournal()
         {
             InitializeComponent();
 
+            journalController = new DesignJournalController(@"C:\");
+
             FillJournalLayout();
+        }
+
+        // TODO Передавать приоритет задачи исходя из открытого таба приоритетов
+        private void CreateDesignTask_Click(object sender, RoutedEventArgs e)
+        {
+            DesignTaskCreate taskCreationWindow = new DesignTaskCreate( journalController );
+            taskCreationWindow.Show();
+        }
+
+        private void OnJournalCellClick(object sender, RoutedEventArgs e)
+        {
+            DesignTaskRead dtr = new DesignTaskRead();
+            dtr.Show();
         }
 
         private void FillJournalLayout()
@@ -33,12 +52,6 @@ namespace OpticianAssistentUI
 
         }
 
-        private void OnJournalCellClick(object sender, RoutedEventArgs e)
-        {
-            DesignTaskRead dtr = new DesignTaskRead();
-            dtr.Show();
-        }
-
         // TODO В этом методе будем подключать библиотеку DesingJournalLib
         private List<DesignTask> GetDesignTasks()
         {
@@ -51,10 +64,5 @@ namespace OpticianAssistentUI
             return designTasks;
         }
 
-        private void CreateDesignTask_Click(object sender, RoutedEventArgs e)
-        {
-            DesignTaskCreate taskCreationWindow = new DesignTaskCreate();
-            taskCreationWindow.Show();
-        }
     }
 }

@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\DesignJournalController.cs" />
     <Compile Include="DesignJournalViews\DesignJournal.xaml.cs">
       <DependentUpon>DesignJournal.xaml</DependentUpon>
     </Compile>

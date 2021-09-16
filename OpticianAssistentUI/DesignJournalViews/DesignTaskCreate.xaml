@@ -17,7 +17,7 @@
 
         <Button x:Name="newTaskCreateButton"
                 DockPanel.Dock="Bottom"
-                Content="Создать"/>
+                Content="Создать" Click="newTaskCreateButton_Click"/>
 
         <TextBox x:Name="newTaskContent"
                  Text="Описание задачи"/>
