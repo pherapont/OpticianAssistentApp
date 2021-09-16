@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using DesignTaskJournalLib;
 
 namespace OpticianAssistentUI
 {
@@ -24,7 +25,7 @@ namespace OpticianAssistentUI
             for (int i = 0; i < designTasks.Count; i++)
             {
                 TextBlock textBlock = (TextBlock)LowJournalLayout.Children[i];
-                textBlock.Text = designTasks[i].DTName;
+                textBlock.Text = designTasks[i].Name;
                 textBlock.TextWrapping = TextWrapping.Wrap;
                 textBlock.Style = (Style)TryFindResource("StyleJournalCell");
                 textBlock.MouseLeftButtonDown += new MouseButtonEventHandler(OnJournalCellClick);
@@ -43,9 +44,9 @@ namespace OpticianAssistentUI
         {
             List<DesignTask> designTasks = new List<DesignTask>();
 
-            designTasks.Add(new DesignTask { DTName = "Отказ от унификации угла отражения" });
-            designTasks.Add(new DesignTask { DTName = "Согласование изменений" });
-            designTasks.Add(new DesignTask { DTName = "Уточнение конструкции приемника" });
+            designTasks.Add(new DesignTask { Name = "Отказ от унификации угла отражения" });
+            designTasks.Add(new DesignTask { Name = "Согласование изменений" });
+            designTasks.Add(new DesignTask { Name = "Уточнение конструкции приемника" });
 
             return designTasks;
         }
