@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace DesignTaskJournalLib
 {
-    public class DesignJournalXML
+    public class DesignJournalXML : IDesignJournal
     {
         const string ROOT_NAME = "DesignJournal";
 
