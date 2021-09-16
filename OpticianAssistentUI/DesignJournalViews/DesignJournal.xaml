@@ -30,7 +30,7 @@
                     Content="Создать" 
                     FontFamily="Georgia" FontSize="18" FontStyle="Italic" FontWeight="Bold"
                     Background="#FF532A41" Foreground="#FF92C9BB"
-                    Padding="10" UseLayoutRounding="False"/>
+                    Padding="10" UseLayoutRounding="False" Click="CreateDesignTask_Click"/>
 
             <Button x:Name="DeleteDesignTask"
                     DockPanel.Dock="Right"

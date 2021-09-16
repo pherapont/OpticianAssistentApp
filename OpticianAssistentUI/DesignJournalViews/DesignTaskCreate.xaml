@@ -1,20 +1,27 @@
-﻿<Window x:Class="OpticianAssistentUI.DesignTaskRead"
+﻿<Window x:Class="OpticianAssistentUI.DesignTaskCreate"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpticianAssistentUI"
         mc:Ignorable="d"
-        Title="Задача проектирования" Height="520" Width="380"
+        Title="Создать новую задачу" Height="520" Width="380"
         Background="#555555"
         Icon="..\Assets\Icons\optic.png">
-
+    
     <DockPanel LastChildFill="True">
-        <TextBlock DockPanel.Dock="Top">
-            
-        </TextBlock>
-        <TextBlock>
-            
-        </TextBlock>
+
+        <TextBox x:Name="newTaskName"
+                 DockPanel.Dock="Top"
+                 Text="Имя задачи"/>
+
+        <Button x:Name="newTaskCreateButton"
+                DockPanel.Dock="Bottom"
+                Content="Создать"/>
+
+        <TextBox x:Name="newTaskContent"
+                 Text="Описание задачи"/>
+
     </DockPanel>
+    
 </Window>

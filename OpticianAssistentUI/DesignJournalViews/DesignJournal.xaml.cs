@@ -50,5 +50,11 @@ namespace OpticianAssistentUI
 
             return designTasks;
         }
+
+        private void CreateDesignTask_Click(object sender, RoutedEventArgs e)
+        {
+            DesignTaskCreate taskCreationWindow = new DesignTaskCreate();
+            taskCreationWindow.Show();
+        }
     }
 }
