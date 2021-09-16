@@ -17,11 +17,9 @@ namespace DesignTaskJournalLib
         {
             XDoc = new XmlDocument();
             XFileName = $"{storeDir}\\{ROOT_NAME}.xml";
-            if (!File.Exists(XFileName))
-            {
-                CreateXMLFile();
-            }
-            XDoc.Load(XFileName);
+
+            LoadXML();
+
             XRoot = XDoc.DocumentElement;
         }
 
@@ -114,10 +112,15 @@ namespace DesignTaskJournalLib
             return (lowPriorityDesignTasks, middlePriorityDesignTasks, heighPriorityDesignTasks);
         }
 
-        private void CreateXMLFile()
+        private void LoadXML()
         {
-            string[] initialContent = { "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>", $"<{ROOT_NAME}>", $"</{ROOT_NAME}>" };
-            File.WriteAllLines(XFileName, initialContent, System.Text.Encoding.UTF8);
+            if (!File.Exists(XFileName))
+            {
+                string[] initialContent = { "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>", $"<{ROOT_NAME}>", $"</{ROOT_NAME}>" };
+                File.WriteAllLines(XFileName, initialContent, System.Text.Encoding.UTF8);
+            }
+
+            XDoc.Load(XFileName);
         }
     }
 }
