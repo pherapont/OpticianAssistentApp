@@ -5,6 +5,10 @@ using System.Xml;
 
 namespace DesignTaskJournalLib
 {
+    /// <summary>
+    /// Special class for saving and working with tasks
+    /// of 3 types priority in XML fale, named "DesignJournal"
+    /// </summary>
     public class DesignJournalXML : IDesignJournal
     {
         const string ROOT_NAME = "DesignJournal";
@@ -13,16 +17,26 @@ namespace DesignTaskJournalLib
         string XFileName;
         XmlElement XRoot;
 
+        /// <summary>
+        /// Create xml document binding to xml storage. 
+        /// If file not exists, create that with name "DesignJournal"
+        /// </summary>
+        /// <param name="storeDir">name of directory with starage file</param>
         public DesignJournalXML(string storeDir)
         {
             XDoc = new XmlDocument();
             XFileName = $"{storeDir}\\{ROOT_NAME}.xml";
 
+            // TODO work with Exceptions
             LoadXML();
 
             XRoot = XDoc.DocumentElement;
         }
 
+        /// <summary>
+        /// Method for saving task in xml file
+        /// </summary>
+        /// <param name="task">object with description of task</param>
         public void SaveDesignTask(DesignTask task)
         {
 
@@ -57,6 +71,11 @@ namespace DesignTaskJournalLib
             XDoc.Save(XFileName);
         }
 
+
+        /// <summary>
+        /// Method for receiving all tasks from xml storage
+        /// </summary>
+        /// <returns>tuple of 3 lists tasks dependent from priority</returns>
         public (List<DesignTask>, List<DesignTask>, List<DesignTask>) GetJournalsFromStorage()
         {
             List<DesignTask> lowPriorityDesignTasks = new List<DesignTask>();
@@ -111,6 +130,7 @@ namespace DesignTaskJournalLib
 
             return (lowPriorityDesignTasks, middlePriorityDesignTasks, heighPriorityDesignTasks);
         }
+
 
         private void LoadXML()
         {
