@@ -71,6 +71,7 @@
     <Compile Include="SpherometrCalculator.xaml.cs">
       <DependentUpon>SpherometrCalculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DesignJournalViews\DesignTaskData.cs" />
     <Page Include="DesignJournalViews\DesignJournal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
