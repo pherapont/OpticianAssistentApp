@@ -14,8 +14,7 @@ namespace OpticianAssistentUI
 
         private void OpenSpherometrCalculator(object sender, RoutedEventArgs e)
         {
-            SpherometrCalculator spherometrCalculator = new SpherometrCalculator();
-            spherometrCalculator.Show();
+            
         }
 
         private void OpenDesignJournal(object sender, RoutedEventArgs e)
