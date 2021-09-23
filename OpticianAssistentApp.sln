@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticianAssistentUI", "Opti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpherometrCalcLib", "SpherometrCalcLib\SpherometrCalcLib.csproj", "{3B6BD08F-2095-4DB7-975F-B5FD3F545B7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptoTechnologiesMapsLib", "OptoTechnologiesMaps\OptoTechnologiesMapsLib.csproj", "{343DE318-5D1D-4C77-B79D-BCC584B63F01}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTaskJournalLib", "DesignTaskJournalLib\DesignTaskJournalLib.csproj", "{FF34D879-5E25-4745-87B3-1DB847F556E9}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{3B6BD08F-2095-4DB7-975F-B5FD3F545B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B6BD08F-2095-4DB7-975F-B5FD3F545B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B6BD08F-2095-4DB7-975F-B5FD3F545B7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{343DE318-5D1D-4C77-B79D-BCC584B63F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{343DE318-5D1D-4C77-B79D-BCC584B63F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{343DE318-5D1D-4C77-B79D-BCC584B63F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{343DE318-5D1D-4C77-B79D-BCC584B63F01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
