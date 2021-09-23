@@ -1,5 +1,4 @@
-﻿using SpherometrCalcLib;
-using System.Windows;
+﻿using System.Windows;
 
 namespace OpticianAssistentUI
 {
@@ -15,7 +14,6 @@ namespace OpticianAssistentUI
 
         private void CalculateSpheraParametrs(object sender, RoutedEventArgs e)
         {
-            
         }
     }
 }

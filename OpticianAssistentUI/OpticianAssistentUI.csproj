@@ -170,5 +170,11 @@
   <ItemGroup>
     <Folder Include="Assets\TestLibs\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesignTaskJournalLib\DesignTaskJournalLib.csproj">
+      <Project>{ff34d879-5e25-4745-87b3-1db847f556e9}</Project>
+      <Name>DesignTaskJournalLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
