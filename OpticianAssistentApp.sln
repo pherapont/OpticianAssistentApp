@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticianAssistentUI", "Opti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTaskJournalLib", "DesignTaskJournalLib\DesignTaskJournalLib.csproj", "{FF34D879-5E25-4745-87B3-1DB847F556E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpheroLib", "SpheroLib\SpheroLib.csproj", "{6A138385-EB0C-42FA-96B9-40782C14DFF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF34D879-5E25-4745-87B3-1DB847F556E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A138385-EB0C-42FA-96B9-40782C14DFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A138385-EB0C-42FA-96B9-40782C14DFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A138385-EB0C-42FA-96B9-40782C14DFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A138385-EB0C-42FA-96B9-40782C14DFF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
