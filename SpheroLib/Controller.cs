@@ -8,14 +8,22 @@ namespace SpheroLib
         public static double GetAndCalculate(UserInputData data)
         {
             Spherometr spherometr;
-            if (data.Spherometr == TypeOfSpherometr.Big)
+            try
             {
-                spherometr = new SpherometrBig(data.RingNumber);
+                if (data.Spherometr == TypeOfSpherometr.Big)
+                {
+                    spherometr = new SpherometrBig(data.RingNumber);
+                }
+                else
+                {
+                    spherometr = new SpherometrSmall(data.RingNumber);
+                }
             }
-            else
+            catch (ArgumentOutOfRangeException ex)
             {
-                spherometr = new SpherometrSmall(data.RingNumber);
+                throw (new OutOfRingsRangeException($"В сферометре {data.Spherometr} нет кольца с номером {data.RingNumber}"));
             }
+
             double ring = spherometr.GetRingRadius();
             double ball = spherometr.GetBallRadius();
             double measure = data.UserMeasureData;
