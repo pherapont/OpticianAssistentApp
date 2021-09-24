@@ -92,10 +92,13 @@
     <Compile Include="DesignJournalViews\DesignTaskCreate.xaml.cs">
       <DependentUpon>DesignTaskCreate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BigRingsData.cs" />
+    <Compile Include="SmallRingsData.cs" />
     <Compile Include="SpherometrCalculator.xaml.cs">
       <DependentUpon>SpherometrCalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="DesignJournalViews\DesignTaskData.cs" />
+    <Compile Include="SpherometrWindowContext.cs" />
     <Page Include="DesignJournalViews\DesignJournal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +177,10 @@
     <ProjectReference Include="..\DesignTaskJournalLib\DesignTaskJournalLib.csproj">
       <Project>{ff34d879-5e25-4745-87b3-1db847f556e9}</Project>
       <Name>DesignTaskJournalLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpheroLib\SpheroLib.csproj">
+      <Project>{6a138385-eb0c-42fa-96b9-40782c14dff2}</Project>
+      <Name>SpheroLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

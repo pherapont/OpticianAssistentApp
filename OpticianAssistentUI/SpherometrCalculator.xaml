@@ -5,22 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpticianAssistentUI"
         mc:Ignorable="d"
-        Title="SpherometrCalculator" Height="720" Width="580"
-        Background="#323232"
+        Title="Сферометр" Height="720" Width="380"
+        Background="#325757"
         Icon=".\Assets\Icons\optic.png"
         >
-    <StackPanel>
+    <Border Margin="10">
+
+        <StackPanel Background="#434343">
+
+            <StackPanel.Resources>
+                <local:BigRingsData x:Key="ringNumbers"/>
+            </StackPanel.Resources>
+            
+            <TextBlock Text="Тип сферометра"
+                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+
+            <ComboBox x:Name="SpherometrType" Margin="10">
+                <ComboBoxItem x:Name="Big"  Content="Большой"/>
+                <ComboBoxItem IsSelected="True" x:Name="Small" Content="Малый"/>
+            </ComboBox>
+
+            <TextBlock Text="Тип вычислений"
+                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+
+            <ComboBox x:Name="CalculationType" Margin="10">
+                <ComboBoxItem x:Name="Radius"  Content="Радиус"/>
+                <ComboBoxItem IsSelected="True" x:Name="Height" Content="Стрелка"/>
+            </ComboBox>
+
+            <TextBlock Text="Номер кольца"
+                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+
+            <ComboBox x:Name="RingNumber" Margin="10"
+                      ItemsSource="{StaticResource ringNumbers}"/>
+
+
+        </StackPanel>
         
-        <TextBlock x:Name="message"
-                   Text="Здесь появится тестовое сообщение"
-                   HorizontalAlignment="Center"
-                   Foreground="#ffffff"
-                   Margin="20"/>
-
-        <Button Width="60" Height="30"
-                Click="CalculateSpheraParametrs"
-                Content="Calculate"/>
-
-    </StackPanel>
+    </Border>
     
 </Window>
