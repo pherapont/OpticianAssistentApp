@@ -92,13 +92,10 @@
     <Compile Include="DesignJournalViews\DesignTaskCreate.xaml.cs">
       <DependentUpon>DesignTaskCreate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BigRingsData.cs" />
-    <Compile Include="SmallRingsData.cs" />
     <Compile Include="SpherometrCalculator.xaml.cs">
       <DependentUpon>SpherometrCalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="DesignJournalViews\DesignTaskData.cs" />
-    <Compile Include="SpherometrWindowContext.cs" />
     <Page Include="DesignJournalViews\DesignJournal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
