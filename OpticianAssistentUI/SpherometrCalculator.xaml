@@ -6,39 +6,61 @@
         xmlns:local="clr-namespace:OpticianAssistentUI"
         mc:Ignorable="d"
         Title="Сферометр" Height="720" Width="380"
-        Background="#325757"
+        Background="#325757" FontSize="14"
         Icon=".\Assets\Icons\optic.png"
         >
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Margin" Value="10 10 10 0"/>
+        </Style>
+    </Window.Resources>
+    
     <Border Margin="10">
 
         <StackPanel Background="#434343">
 
-            <StackPanel.Resources>
-                <local:BigRingsData x:Key="ringNumbers"/>
-            </StackPanel.Resources>
-            
-            <TextBlock Text="Тип сферометра"
-                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+            <TextBlock Text="Тип сферометра"/>
 
-            <ComboBox x:Name="SpherometrType" Margin="10">
-                <ComboBoxItem x:Name="Big"  Content="Большой"/>
-                <ComboBoxItem IsSelected="True" x:Name="Small" Content="Малый"/>
+            <ComboBox Name="spherometrType" Margin="10"
+                      SelectionChanged="SpherometrType_SelectionChanged">
+                <ComboBoxItem Name="big"  Content="Большой"/>
+                <ComboBoxItem IsSelected="True" x:Name="small" Content="Малый"/>
             </ComboBox>
 
-            <TextBlock Text="Тип вычислений"
-                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+            <TextBlock Text="Тип вычислений"/>
 
-            <ComboBox x:Name="CalculationType" Margin="10">
-                <ComboBoxItem x:Name="Radius"  Content="Радиус"/>
-                <ComboBoxItem IsSelected="True" x:Name="Height" Content="Стрелка"/>
+            <ComboBox Name="calculationType" Margin="10">
+                <ComboBoxItem Name="radius"  Content="Радиус"/>
+                <ComboBoxItem IsSelected="True" Name="height" Content="Стрелка"/>
             </ComboBox>
 
-            <TextBlock Text="Номер кольца"
-                   Foreground="#ffffff"  Margin="10 10 10 0"/>
+            <TextBlock Text="Номер кольца большого сферометра"/>
 
-            <ComboBox x:Name="RingNumber" Margin="10"
-                      ItemsSource="{StaticResource ringNumbers}"/>
+            <ComboBox Name="bigRings" Margin="10" IsEnabled="False">
+                <ComboBoxItem Name="bigRing1" Content="Кольцо 1"/>
+                <ComboBoxItem Name="bigRing2" Content="Кольцо 2"/>
+                <ComboBoxItem IsSelected="True" Name="bigRing3" Content="Кольцо 3"/>
+                <ComboBoxItem Name="bigRing4" Content="Кольцо 4"/>
+            </ComboBox>
 
+            <TextBlock Text="Номер кольца малого сферометра"/>
+
+            <ComboBox Name="smallRings" Margin="10">
+                <ComboBoxItem Name="smallRing1" Content="Кольцо 1"/>
+                <ComboBoxItem Name="smallRing2" Content="Кольцо 2"/>
+                <ComboBoxItem IsSelected="True" Name="smallRing3" Content="Кольцо 3"/>
+                <ComboBoxItem Name="smallRing4" Content="Кольцо 4"/>
+                <ComboBoxItem Name="smallRing5" Content="Кольцо 5"/>
+                <ComboBoxItem Name="smallRing7" Content="Кольцо 7"/>
+            </ComboBox>
+
+            <TextBlock Text="Данные измерения" />
+
+            <TextBox Name="mesaredData" Margin="10" Text="0.00"/>
+
+            <Button Name="buttonCalculate" Content="Вычислить" Margin="40"/>
 
         </StackPanel>
         

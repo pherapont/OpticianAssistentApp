@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 using SpheroLib;
 
 namespace OpticianAssistentUI
@@ -12,13 +12,25 @@ namespace OpticianAssistentUI
         public SpherometrCalculator()
         {
             InitializeComponent();
-
-
         }
 
-        private void CalculateSpheraParametrs(object sender, RoutedEventArgs e)
+        private void SpherometrType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            ComboBoxItem selectedItem = (ComboBoxItem)spherometrType.SelectedItem;
+            if (selectedItem == big)
+            {
+                if(bigRings != null)
+                    bigRings.IsEnabled = true;
+                if (smallRings != null)
+                    smallRings.IsEnabled = false;
+            }
+            else
+            {
+                if (bigRings != null)
+                    bigRings.IsEnabled = false;
+                if (smallRings != null)
+                    smallRings.IsEnabled = true;
+            }
         }
     }
 }
